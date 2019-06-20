@@ -30,4 +30,9 @@ class CustomerClient extends Specification
         then:
         noExceptionThrown()
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

@@ -295,4 +295,9 @@ class PaymentClientSpec extends Specification
         noExceptionThrown()
         batch.batchItems[0].id == payment.batchItemId
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

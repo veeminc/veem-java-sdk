@@ -67,6 +67,11 @@ class ContactClientSpec extends Specification
         batch != null
     }
 
+    def cleanup()
+    {
+        sleep(1000)
+    }
+
     private String getUniqueEmail()
     {
         int lowerBound = 97;

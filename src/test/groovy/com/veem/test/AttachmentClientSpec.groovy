@@ -56,4 +56,9 @@ class AttachmentClientSpec extends Specification
         downloadedAttachment.path.equals(downloadDir.resolve(downloadedAttachment.getName()))
         Files.isReadable(downloadedAttachment.path)
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

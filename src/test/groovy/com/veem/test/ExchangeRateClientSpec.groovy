@@ -82,4 +82,9 @@ class ExchangeRateClientSpec extends Specification
         exchangeRate.getRate().round(6) == (exchangeRate.getToAmount() / exchangeRate.getFromAmount()).round(6)
         exchangeRate.getExpiry().after(Date.from(Instant.now()))
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

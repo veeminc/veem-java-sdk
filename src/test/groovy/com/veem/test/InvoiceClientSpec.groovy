@@ -96,4 +96,9 @@ class InvoiceClientSpec extends Specification
         noExceptionThrown()
         cancelledInvoice.getStatus() == CANCELLED
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

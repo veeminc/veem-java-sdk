@@ -28,4 +28,9 @@ class MetadataClientSpec extends Specification
         noExceptionThrown()
         !countryInfo.isEmpty()
     }
+
+    def cleanup()
+    {
+        sleep(1000)
+    }
 }

@@ -75,8 +75,7 @@ class AuthenticationClientSpec extends Specification {
         noExceptionThrown()
     }
 
-    def "Get authorization code url"()
-    {
+    def "Get authorization code url"() {
         setup: "Setup authentication context for authorization flow"
         def config = new JsonSlurper().parse(getClass().getResource("testConfigAuth.json"))
         VeemContext veemContext = new VeemContext.VeemContextBuilder()
@@ -92,5 +91,10 @@ class AuthenticationClientSpec extends Specification {
         then:
         noExceptionThrown()
         authUrl != null
+    }
+
+    def cleanup()
+    {
+        sleep(1000)
     }
 }
