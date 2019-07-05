@@ -33,6 +33,6 @@ class CustomerClient extends Specification
 
     def cleanup()
     {
-        sleep(1000)
+        sleep(2000)
     }
 }

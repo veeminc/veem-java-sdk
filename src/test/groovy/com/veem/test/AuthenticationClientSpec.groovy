@@ -3,7 +3,7 @@ package com.veem.test
 import com.veem.client.AuthenticationClient
 import com.veem.client.VeemContext
 import com.veem.constants.Scope
-import com.veem.model.Token
+import com.veem.model.TokenResponse
 import groovy.json.JsonSlurper
 import spock.lang.Specification
 
@@ -26,7 +26,7 @@ class AuthenticationClientSpec extends Specification {
 
         when:
         AuthenticationClient authenticationClient = veemContext.getAuthenticationClient()
-        Token tokenResponse = authenticationClient.getTokenFromClientCredentials(
+        TokenResponse tokenResponse = authenticationClient.getTokenFromClientCredentials(
                 Arrays.asList(Scope.ALL)
         )
 
@@ -49,7 +49,7 @@ class AuthenticationClientSpec extends Specification {
 
         when:
         AuthenticationClient authenticationClient = veemContext.getAuthenticationClient()
-        Token tokenResponse = authenticationClient.getTokenFromAuthorizationCode(
+        TokenResponse tokenResponse = authenticationClient.getTokenFromAuthorizationCode(
                 AUTHORIZATION_CODE, REDIRECT_URL,Arrays.asList(Scope.ALL))
 
         then:
@@ -95,6 +95,6 @@ class AuthenticationClientSpec extends Specification {
 
     def cleanup()
     {
-        sleep(1000)
+        sleep(2000)
     }
 }

@@ -3,7 +3,7 @@ package com.veem.client;
 import com.veem.constants.Scope;
 import com.veem.exceptions.VeemException;
 import com.veem.exceptions.VeemSdkException;
-import com.veem.model.Token;
+import com.veem.model.TokenResponse;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -57,7 +57,7 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public Token getTokenFromAuthorizationCode(
+    public TokenResponse getTokenFromAuthorizationCode(
             final String authorizationCode,
             final String redirectUrl,
             final List<Scope> scopes) throws IOException, VeemSdkException
@@ -85,7 +85,7 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public Token getTokenFromClientCredentials(final List<Scope> scopes) throws VeemException
+    public TokenResponse getTokenFromClientCredentials(final List<Scope> scopes) throws VeemException
     {
         return handleResponse(authenticationApi
                 .getToken(
@@ -103,7 +103,7 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public Token refreshToken(final String refreshToken) throws VeemException
+    public TokenResponse refreshToken(final String refreshToken) throws VeemException
     {
         if (refreshToken == null || refreshToken.trim().isEmpty())
         {

@@ -7,7 +7,7 @@ import retrofit2.http.Query;
 
 import java.util.List;
 
-import com.veem.model.Token;
+import com.veem.model.TokenResponse;
 
 /**
  * API endpoints.
@@ -15,7 +15,7 @@ import com.veem.model.Token;
 interface AuthenticationApi
 {
     @POST("/oauth/token")
-    Call<Token> getToken(
+    Call<TokenResponse> getToken(
             @Header("Authorization") String encodedCredentials,
             @Query("grant_type") String grantType,
             @Query("code") String code,

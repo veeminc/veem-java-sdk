@@ -20,6 +20,7 @@ public class PaymentListParameters
 {
     private final Direction direction;
     private final List<Long> paymentIds;
+    private final Long batchId;
     private final Set<PaymentStatus> status;
     private final Map<PaymentSortField, SortOrder> sortParameters;
     private final Integer pageNumber;
