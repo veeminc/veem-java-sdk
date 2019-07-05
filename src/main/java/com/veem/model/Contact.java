@@ -6,9 +6,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 import com.veem.constants.AccountType;
+import lombok.ToString;
 
 @Builder
 @Getter
+@ToString
 public class Contact
 {
     private Long id;

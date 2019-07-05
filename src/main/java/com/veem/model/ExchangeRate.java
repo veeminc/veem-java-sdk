@@ -5,12 +5,14 @@ import com.neovisionaries.i18n.CurrencyCode;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Builder
 @Getter
+@ToString
 public class ExchangeRate
 {
     private String hashId;

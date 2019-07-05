@@ -13,10 +13,7 @@ public class AmountConverter
 {
     public static Amount convert(final AmountResponse amountResponse)
     {
-        return Amount.builder()
-                .number(amountResponse.getNumber())
-                .currency(amountResponse.getCurrency())
-                .build();
+        return new Amount(amountResponse.getNumber(), amountResponse.getCurrency());
     }
 
     public static AmountRequest convert(final Amount amount)

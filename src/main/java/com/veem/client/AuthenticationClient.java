@@ -1,8 +1,9 @@
 package com.veem.client;
 
 import com.veem.constants.Scope;
+import com.veem.exceptions.VeemException;
 import com.veem.exceptions.VeemSdkException;
-import com.veem.model.TokenResponse;
+import com.veem.model.Token;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -10,6 +11,8 @@ import java.net.URLEncoder;
 import java.util.Base64;
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static com.veem.client.ResponseHandler.handleResponse;
 
 public class AuthenticationClient
 {
@@ -54,7 +57,7 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public TokenResponse getTokenFromAuthorizationCode(
+    public Token getTokenFromAuthorizationCode(
             final String authorizationCode,
             final String redirectUrl,
             final List<Scope> scopes) throws IOException, VeemSdkException
@@ -82,18 +85,16 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public TokenResponse getTokenFromClientCredentials(final List<Scope> scopes) throws IOException, VeemSdkException
+    public Token getTokenFromClientCredentials(final List<Scope> scopes) throws VeemException
     {
-        return authenticationApi
+        return handleResponse(authenticationApi
                 .getToken(
                         getEncodedClientCredentials(),
                         CLIENT_CREDENTIALS_GRANT_TYPE,
                         null,
                         null,
                         null,
-                        scopes.stream().map(Scope::getStringValue).collect(Collectors.toList()))
-                .execute()
-                .body();
+                        scopes.stream().map(Scope::getStringValue).collect(Collectors.toList()))::execute);
     }
 
     /**
@@ -102,23 +103,21 @@ public class AuthenticationClient
      * @return
      * @throws IOException
      */
-    public TokenResponse refreshToken(final String refreshToken) throws IOException, VeemSdkException
+    public Token refreshToken(final String refreshToken) throws VeemException
     {
         if (refreshToken == null || refreshToken.trim().isEmpty())
         {
             throw new VeemSdkException("Refresh token cannot be empty or null");
         }
 
-        return authenticationApi
+        return handleResponse(authenticationApi
                 .getToken(
                         getEncodedClientCredentials(),
                         REFRESH_TOKEN_GRANT_TYPE,
                         null,
                         refreshToken,
                         null,
-                        null)
-                .execute()
-                .body();
+                        null)::execute);
     }
 
     private String getEncodedClientCredentials() throws VeemSdkException

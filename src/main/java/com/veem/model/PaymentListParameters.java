@@ -11,9 +11,11 @@ import com.veem.constants.Direction;
 import com.veem.constants.PaymentSortField;
 import com.veem.constants.PaymentStatus;
 import com.veem.constants.SortOrder;
+import lombok.ToString;
 
 @Builder
 @Getter
+@ToString
 public class PaymentListParameters
 {
     private final Direction direction;

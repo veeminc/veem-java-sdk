@@ -22,6 +22,4 @@ public class Account
     private Long id;
     private String name;
     private Boolean isContact;
-    private AccountType accountType;
-
 }

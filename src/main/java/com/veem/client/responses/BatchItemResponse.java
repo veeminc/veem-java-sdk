@@ -1,5 +1,6 @@
 package com.veem.client.responses;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +28,8 @@ public class BatchItemResponse
         private Long code;
         private String error;
         private String message;
+
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss.SSS")
         private Date timestamp;
     }
 }

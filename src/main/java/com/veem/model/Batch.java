@@ -8,6 +8,7 @@ import com.veem.constants.BatchStatus;
 
 @Builder
 @Getter
+@ToString
 public class Batch
 {
     private final Long id;
