@@ -10,7 +10,7 @@ public enum BatchStatus
 {
     FAILED("Failed"),
     IN_PROGRESS("InProgress"),
-    COMPLETED("Complete");
+    COMPLETED("Completed");
 
     @JsonValue
     private String jsonValue;

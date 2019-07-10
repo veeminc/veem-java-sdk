@@ -22,7 +22,9 @@ public class PaymentConverter
                 .claimLink(paymentResponse.getClaimLink())
                 .status(paymentResponse.getStatus())
                 .batchItemId(paymentResponse.getBatchItemId())
-                .amount(ofNullable(paymentResponse.getAmountResponse()).map(AmountConverter::convert).orElse(null))
+                .amount(ofNullable(paymentResponse.getAmount()).map(AmountConverter::convert)
+                        .orElseGet(() -> ofNullable(paymentResponse.getPayeeAmount()).map(AmountConverter::convert)
+                        .orElse(null)))
                 .payee(ofNullable(paymentResponse.getPayee()).map(AccountConverter::convert).orElse(null))
                 .payer(ofNullable(paymentResponse.getPayer()).map(AccountConverter::convert).orElse(null))
                 .attachments(ofNullable(paymentResponse.getAttachments()).orElseGet(Collections::emptyList).stream()
@@ -31,6 +33,7 @@ public class PaymentConverter
                 .ccEmails(paymentResponse.getCcEmails())
                 .pushPaymentInfo(ofNullable(paymentResponse.getPushPaymentInfoResponse()).map(PushPaymentInfoConverter::convert).orElse(null))
                 .paymentApproval(ofNullable(paymentResponse.getPaymentApprovalResponse()).map(PaymentApprovalConverter::convert).orElse(null))
+                .exchangeRate(ofNullable(paymentResponse.getExchangeRate()).map(ExchangeRateConverter::convert).orElse(null))
                 .build();
     }
 

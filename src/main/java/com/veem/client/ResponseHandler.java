@@ -3,6 +3,15 @@ package com.veem.client;
 import static java.util.Optional.ofNullable;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.veem.exceptions.VeemBadRequestException;
+import com.veem.exceptions.VeemConflictException;
+import com.veem.exceptions.VeemErrorResponse;
+import com.veem.exceptions.VeemException;
+import com.veem.exceptions.VeemForbiddenException;
+import com.veem.exceptions.VeemInternalException;
+import com.veem.exceptions.VeemNotFoundException;
+import com.veem.exceptions.VeemSdkException;
+import com.veem.exceptions.VeemUnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
 import org.json.simple.JSONObject;
@@ -11,9 +20,6 @@ import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.function.Function;
-
-import com.veem.exceptions.*;
-import com.veem.model.VeemErrorResponse;
 
 /**
  * Retrofit2 response handler for internal Veem requests.

@@ -21,7 +21,8 @@ public class PaymentResponse
     private AccountResponse payee;
     private AccountResponse payer;
     private PaymentStatus status;
-    private AmountResponse amountResponse;
+    private AmountResponse amount;
+    private AmountResponse payeeAmount;
     private ExchangeRateResponse exchangeRate;
     private List<AttachmentResponse> attachments;
     private Long batchItemId;
@@ -30,6 +31,7 @@ public class PaymentResponse
     private String purposeOfPayment;
     private PushPaymentInfoResponse pushPaymentInfoResponse;
     private PaymentApprovalResponse paymentApprovalResponse;
+    private ExchangeRateResponse exchangeRateResponse;
 
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-dd-MM'T'hh:mm:ss.SSS'Z'")

@@ -16,17 +16,6 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.jackson.JacksonConverterFactory;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.Base64;
-import java.util.List;
-import java.util.stream.Collectors;
-
-import com.veem.constants.Scope;
-import com.veem.exceptions.VeemSdkException;
-import com.veem.model.TokenResponse;
-
 /**
  *
  */

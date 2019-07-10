@@ -29,10 +29,7 @@ class AmountConverterSpec extends Specification
     def "Converts form Amount to AmountRequest"()
     {
         given:
-        Amount amount = Amount.builder()
-            .number(BigDecimal.valueOf(1L))
-            .currency(CurrencyCode.INR)
-            .build()
+        Amount amount = new Amount(BigDecimal.valueOf(1L), CurrencyCode.INR);
 
         when:
         AmountRequest amountRequest = AmountConverter.convert(amount)

@@ -1,4 +1,4 @@
-package com.veem.model;
+package com.veem.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;

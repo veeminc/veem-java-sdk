@@ -51,6 +51,7 @@ interface PaymentApi
     Call<PageResponse<PaymentResponse>> list(
             @Query("direction") String direction,
             @Query("paymentIds") List<Long> paymentIds,
+            @Query("batchId") Long batchId,
             @Query("status") Set<PaymentStatus> status,
             @Query("sort") List<String> sortParameters,
             @Query("pageNumber") Integer pageNumber,

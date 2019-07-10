@@ -47,6 +47,7 @@ public final class PaymentClient
                 handleResponse(paymentApi.list(
                         ofNullable(parameters.getDirection()).map(Direction::getStringValue).orElse(null),
                         parameters.getPaymentIds(),
+                        parameters.getBatchId(),
                         parameters.getStatus(),
                         ofNullable(parameters.getSortParameters()).orElseGet(Collections::emptyMap).keySet().stream()
                                 .map(field -> String.format("%s:%s",

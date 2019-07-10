@@ -2,11 +2,13 @@ package com.veem.model;
 
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Builder
 @Getter
+@ToString
 public class ContactListParameters
 {
     private final String email;

@@ -11,6 +11,7 @@ import java.util.Date;
 import com.veem.constants.BatchItemType;
 import com.veem.constants.BatchStatus;
 import com.veem.exceptions.VeemSdkException;
+import lombok.ToString;
 
 @Builder
 @Getter

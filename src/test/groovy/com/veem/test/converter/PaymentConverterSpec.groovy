@@ -43,9 +43,8 @@ class PaymentConverterSpec  extends Specification
                     .email("jsmith@test.com")
                     .countryCode(CountryCode.US)
                     .businessName("XYZ Inc")
-                    .accountType(AccountType.BUSINESS)
                     .build())
-            .amount(Amount.builder().number(BigDecimal.valueOf(1000)).currency(CurrencyCode.USD).build())
+            .amount(new Amount(BigDecimal.valueOf(1000), CurrencyCode.USD))
         .build()
 
         when:

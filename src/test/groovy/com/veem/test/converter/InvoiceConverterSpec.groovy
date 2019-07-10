@@ -39,8 +39,7 @@ class InvoiceConverterSpec extends Specification
             .firstName("John").lastName("Smith").email("jsmith@test.com")
             .countryCode(CountryCode.GB).isContact(true).build()
         and:
-        Invoice invoice = Invoice.builder().payer(account).amount(Amount.builder()
-        .currency(CurrencyCode.USD).number(BigDecimal.valueOf(5000)).build())
+        Invoice invoice = Invoice.builder().payer(account).amount(new Amount(BigDecimal.valueOf(5000), CurrencyCode.USD))
         .notes("notes").build()
 
         when:

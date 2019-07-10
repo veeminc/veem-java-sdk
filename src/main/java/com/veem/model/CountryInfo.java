@@ -4,11 +4,13 @@ import com.neovisionaries.i18n.CountryCode;
 import com.neovisionaries.i18n.CurrencyCode;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Collection;
 
 @Builder
 @Getter
+@ToString
 public class CountryInfo
 {
     private CountryCode country;

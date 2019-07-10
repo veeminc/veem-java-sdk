@@ -4,6 +4,7 @@ import com.neovisionaries.i18n.CountryCode;
 import com.neovisionaries.i18n.CurrencyCode;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 
 /**
  * This is a public API request structure. Changing it requires
@@ -11,6 +12,7 @@ import lombok.Getter;
  */
 @Builder
 @Getter
+@ToString
 public class BankAccount
 {
     private final String routingNumber;

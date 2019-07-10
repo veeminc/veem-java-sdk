@@ -7,8 +7,6 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Date;
 
-import com.veem.model.VeemErrorResponse;
-
 /**
  * Exception type for inter and intra service use.
  * This exception type has extra fields for

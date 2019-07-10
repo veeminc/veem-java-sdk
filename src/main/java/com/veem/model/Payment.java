@@ -7,9 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 import com.veem.constants.PaymentStatus;
+import lombok.ToString;
 
 @Builder
 @Getter
+@ToString
 public class Payment
 {
     private Long id;
