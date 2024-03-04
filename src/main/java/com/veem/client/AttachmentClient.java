@@ -79,7 +79,7 @@ public final class AttachmentClient
         val targetFilePath = targetDirectory.toAbsolutePath().resolve(attachment.getName());
         if (Files.exists(targetFilePath))
         {
-            throw new VeemSdkException(String.format("%s already exists", targetFilePath.toString()));
+            throw new VeemSdkException(String.format("%s already exists", targetFilePath));
         }
         val responseBody = handleResponse(attachmentApi.download(
                 attachment.getName(), attachment.getReferenceId(), veemClient.authorization)::execute);
@@ -93,14 +93,14 @@ public final class AttachmentClient
         {
             if (!Files.isDirectory(targetDirectory))
             {
-                throw new VeemSdkException(String.format("%s is not a directory", targetDirectory.toString()));
+                throw new VeemSdkException(String.format("%s is not a directory", targetDirectory));
             }
         }
         else
         {
             if (!targetDirectory.toFile().mkdirs())
             {
-                throw new VeemSdkException(String.format("Unable to create director %s", targetDirectory.toString()));
+                throw new VeemSdkException(String.format("Unable to create director %s", targetDirectory));
             }
         }
     }
@@ -114,7 +114,7 @@ public final class AttachmentClient
         catch (IOException e)
         {
             throw new VeemSdkException(e, String.format("The downloaded file could not be saved to %s",
-                    targetFilePath.toString()));
+                targetFilePath));
         }
     }
 }
