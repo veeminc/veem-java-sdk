@@ -2,6 +2,7 @@ package com.veem.client;
 
 import static java.util.Optional.ofNullable;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.veem.exceptions.VeemBadRequestException;
 import com.veem.exceptions.VeemConflictException;
@@ -14,8 +15,6 @@ import com.veem.exceptions.VeemSdkException;
 import com.veem.exceptions.VeemUnauthorizedException;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
 import retrofit2.Response;
 
 import java.io.IOException;
@@ -114,10 +113,10 @@ class ResponseHandler
         String error;
         try
         {
-            val errorResponse = (JSONObject) JSONValue.parse(errorBody);
+            val errorResponse = MAPPER.readTree(errorBody);
             error = ofNullable(errorResponse)
                 .map(er -> er.get("message"))
-                .map(Object::toString)
+                .map(JsonNode::asText)
                 .orElseThrow(RuntimeException::new);
             log.error(error);
         }
